@@ -1,0 +1,147 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+html{
+	background:url(照片/js2.jpg) ;
+}
+html,body{
+	height: 100%;
+}
+body{
+	perspective: 1000px;
+	transform-style: preserve-3d; 
+}
+
+@keyframes round{
+	0%{
+		transform: rotateX(0deg) rotateY(0deg);
+	}
+	100%{
+		transform: rotateX(360deg) rotateY(360deg);
+	}
+}
+
+div.wrapper{
+	position: absolute;
+	left: calc(50% - 50px);
+	top: calc(50% - 50px);
+	width: 100px;
+	height: 100px;
+	transform-style: preserve-3d; 
+	animation: round 20s linear infinite;
+}
+.wrapper .wrap {
+	width: 140px;
+	height: 140px;
+	background: rgba(0,255,255,1);
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	overflow: hidden;
+}
+.wrapper .wrap img{
+	height: 100%;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.in-front{
+	transform: translateZ(70px);
+}
+.in-back{
+	transform: translateZ(-70px);
+}
+.in-left{
+	transform: rotateY(90deg) translateZ(70px);
+}
+.in-right{
+	transform: rotateY(-90deg) translateZ(70px);
+}
+.in-top{
+	transform: rotateX(90deg) translateZ(70px);
+}
+.in-bottom{
+	transform: rotateX(-90deg) translateZ(70px);
+}
+
+
+.wrapper .out{
+	width: 200px;
+	height: 200px;
+	background: rgba(0,255,255,1);
+	position: absolute;
+	overflow: hidden;
+	transition: all 1s;
+}
+.wrapper .out img{
+	height: 100%;
+}
+/*设置外层div*/
+.out-front{
+	transform: translateZ(100px);
+}
+.out-back{
+	transform: translateZ(-100px);
+}
+.out-left{
+	transform: rotateY(90deg) translateZ(100px);
+}
+.out-right{
+	transform: rotateY(-90deg) translateZ(100px);
+}
+.out-top{
+	transform: rotateX(90deg) translateZ(100px);
+}
+.out-bottom{
+	transform: rotateX(-90deg) translateZ(100px);
+}
+
+/*hover效果*/
+.wrapper:hover .out-front{
+	transform: translateZ(150px);
+}
+.wrapper:hover .out-back{
+	transform: translateZ(-150px);
+}
+.wrapper:hover .out-left{
+	transform: rotateY(90deg) translateZ(150px);
+}
+.wrapper:hover .out-right{
+	transform: rotateY(-90deg) translateZ(150px);
+}
+.wrapper:hover .out-top{
+	transform: rotateX(90deg) translateZ(150px);
+}
+.wrapper:hover .out-bottom{
+	transform: rotateX(-90deg) translateZ(150px);
+}
+
+.jl{
+    padding-top: 100px;
+    width: 100%;
+    margin: auto;
+}
+.jl .typing{
+    margin: auto;
+    font-size: 30px;
+}
+.typing {
+    width: 32em;
+    white-space: nowrap;
+    border-right: 2px solid transparent;
+    animation: typing 6s steps(26, end), blink-caret .75s step-end infinite;
+    overflow: hidden;
+}
+/* 打印效果 */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 32em; }
+}
+/* 光标闪啊闪 */
+@keyframes blink-caret {
+  from, to { box-shadow: 1px 0 0 0 transparent; }
+  50% { box-shadow: 1px 0 0 0; }
+}
